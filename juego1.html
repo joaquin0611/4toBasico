@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende a Contar - El Juego de la Heladería</title>
+    <link rel="stylesheet" href="css/estilo_juego1.css">
+    
+    <style>
+        .marcador-rachas {
+            background: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #6c5ce7;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 3px solid #efecfd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .estrella-marcador {
+            color: #dfe6e9;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        .estrella-marcador.activa {
+            color: #f1c40f;
+            animation: popEstrella 0.3s ease;
+        }
+        @keyframes popEstrella {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+            100% { transform: scale(1); }
+        }
+
+        /* 🌟 NUEVOS ESTILOS PARA EL KARAOKE EN LA BURBUJA DEL JUEGO */
+        .palabra-juego {
+            display: inline-block;
+            margin-right: 5px;
+            transition: all 0.15s ease;
+            position: relative;
+        }
+        .palabra-juego.resaltada {
+            color: #6c5ce7 !important; /* Cambia a morado destacado */
+            transform: scale(1.12);
+        }
+        .palabra-juego.resaltada::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 3px;
+            background: #a29bfe;
+            border-radius: 2px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div class="marcador-rachas">
+        <span>⭐ Buenas llevas:</span>
+        <span id="estrella-1" class="estrella-marcador">★</span>
+        <span id="estrella-2" class="estrella-marcador">★</span>
+        <span id="estrella-3" class="estrella-marcador">★</span>
+        <span id="texto-contador">(0 / 3)</span>
+    </div>
+
+    <div class="contenedor-dos-columnas">
+        
+        <div class="cuadrado-panel panel-cliente">
+            <p class="titulo-seccion">👤 El Cliente</p>
+            <div class="burbuja-cliente">
+                <span id="pedido-texto"></span>
+                <br>
+                <button type="button" class="btn-escuchar-juego" onclick="repetirPedido()">🔊 Escuchar Orden</button>
+            </div>
+            <div class="emoji-cliente">🧑‍✨</div>
+        </div>
+
+        <div class="cuadrado-panel panel-cocina">
+            <p class="titulo-seccion">🍦 Estación de Preparación</p>
+            
+            <div class="zona-entrega" id="zona-cono" ondragover="permitirSoltar(event)" ondrop="soltarHelado(event)">
+                <div class="cono-dibujo">🍦</div>
+                <div id="cono-helados-dados" class="bolas-contenedor"></div>
+            </div>
+
+            <p class="instruccion-arrastrar">👇 ¡Arrastra o haz clic en la bola de helado! 👇</p>
+            
+            <div class="barra-ingredientes">
+                <div class="bola-ingrediente" draggable="true" ondragstart="iniciarArrastre(event)" onclick="servirPorClick()" id="bola-crema">🍧</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="controles-globales">
+        <button class="btn-accion-juego" onclick="reiniciarJuego()">🔄 Empezar de Nuevo</button>
+        <button class="btn-accion-juego btn-revisar" onclick="verificarPedido()">✅ ¡Listo!</button>
+        <button class="btn-accion-juego btn-volver" onclick="window.location.href='juego.html'">⬅ Volver a Aprender</button>
+    </div>
+
+    <script src="js/script_juego1.js"></script>
+</body>
+</html>

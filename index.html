@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Infantil</title>
+    <link rel="icon" href="img/logo 1.png">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/estilo_juego.css">
+    <!-- Librería para serpentinas -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+<div class="contenedor">
+    <!-- LOGO -->
+    <img src="img/logo 1.png" class="logo" alt="Logo">
+
+    <h2>👋 Bienvenido</h2>
+
+    <!-- NOMBRE -->
+    <input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+    <p class="titulo">🎨 Selecciona tu avatar</p>
+
+    <!-- AVATARES -->
+    <div class="avatares">
+        <label>
+            <input type="radio" name="avatar" value="img/avatar1.jpg" onclick="reproducirSeleccion()">
+            <img src="img/avatar1.jpg">
+        </label>
+
+        <label>
+            <input type="radio" name="avatar" value="img/avatar2.png" onclick="reproducirSeleccion()">
+            <img src="img/avatar2.png">
+        </label>
+
+        <label>
+            <input type="radio" name="avatar" value="img/avatar3.jpg" onclick="reproducirSeleccion()">
+            <img src="img/avatar3.jpg">
+        </label>
+    </div>
+
+    <!-- BOTÓN -->
+    <button onclick="ingresar()">Entrar 🚀</button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

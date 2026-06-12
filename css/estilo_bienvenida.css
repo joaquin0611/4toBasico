@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght=400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contenedor-bienvenida {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 35px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #4a148c;
+    margin-top: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.subtitulo {
+    color: #7b1fa2;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.avatar-perfil-zona {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.tarjeta-instrucciones {
+    border: 2px dashed #ce93d8;
+    background: #fdf7ff;
+    padding: 12px 20px;
+    border-radius: 20px;
+    color: #4a148c;
+    font-weight: bold;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.contenedor-botones-inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.btn-juego-original {
+    background: #ffb7b2;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border-radius: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 5px 0 #ff9aa2;
+    transition: transform 0.1s;
+}
+
+.btn-juego-original:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #ff9aa2;
+}
+
+.btn-cuarto-basico {
+    background: #7ED957;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border-radius: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 5px 0 #5fb33e;
+    transition: transform 0.1s;
+}
+
+.btn-cuarto-basico:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #5fb33e;
+}

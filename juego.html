@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende a Contar - Enseñar</title>
+    <link rel="stylesheet" href="css/estilo_enseñar.css">
+</head>
+<body>
+
+    <div class="contenedor-enseñar">
+        
+        <div class="burbuja-numero">
+            <span id="numero-pantalla">0</span>
+        </div>
+
+        <div class="burbuja-texto">
+            <span id="texto-instruccion">¡Selecciona un número para aprender a contar!</span>
+            <button type="button" class="btn-escuchar" id="btn-reproducir-voz">🔊 Escuchar</button>
+        </div>
+
+        <div class="zona-helados-pantalla" id="contenedor-helados-visibles">
+            </div>
+
+        <div class="panel-numeros">
+            <button class="btn-num" onclick="presionarNumeroDirecto(1, this)">1</button>
+            <button class="btn-num" onclick="presionarNumeroDirecto(2, this)">2</button>
+            <button class="btn-num" onclick="presionarNumeroDirecto(3, this)">3</button>
+            <button class="btn-num" onclick="presionarNumeroDirecto(4, this)">4</button>
+            <button class="btn-num" onclick="presionarNumeroDirecto(5, this)">5</button>
+            <button class="btn-num" onclick="presionarNumeroDirecto(6, this)">6</button>
+            <button class="btn-num" onclick="presionarNumeroDirecto(7, this)">7</button>
+            <button class="btn-num" onclick="presionarNumeroDirecto(8, this)">8</button>
+            <button class="btn-num" onclick="presionarNumeroDirecto(9, this)">9</button>
+            <button class="btn-num" onclick="presionarNumeroDirecto(10, this)">10</button>
+        </div>
+
+        <div class="controles-inferiores">
+            <button class="btn-accion" onclick="reiniciarContador()">🔄 Limpiar</button>
+            <button id="btn-ir-al-juego" class="btn-accion btn-juego" style="display: none;" onclick="window.location.href='juego1.html'">🍦 ¡Ir a la Heladería!</button>
+            <button class="btn-accion btn-volver" onclick="window.history.back()">⬅ Volver</button>
+        </div>
+
+    </div>
+
+    <script src="js/script_enseñar.js"></script>
+</body>
+</html>

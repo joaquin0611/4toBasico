@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida - Educa JR</title>
+    <link rel="stylesheet" href="css/estilo_bienvenida.css">
+    <style>
+        .enlace-cuarto {
+            display: block;
+            margin-top: 15px;
+            color: #4a148c;
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 1.1rem;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .enlace-cuarto:hover {
+            color: #7b1fa2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor-bienvenida">
+        <h1 id="saludo-usuario">Bienvenido</h1>
+        
+        <div class="avatar-perfil-zona">
+            <img id="avatar-pantalla" src="" alt="Tu Avatar" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+        </div>
+
+        <div style="font-size: 1.8rem; margin: 10px 0; color: #f1c40f;">⭐ ⭐ ⭐</div>
+
+        <div class="contenedor-botones-inicio" style="margin-top: 20px;">
+            <button class="btn-juego-original" onclick="window.location.href='basico4.html'" style="background: #4d6df3; color: white; border: none; padding: 12px 30px; font-size: 1.1rem; border-radius: 10px; cursor: pointer; font-weight: bold; font-family: 'Quicksand', sans-serif;">
+                Comenzar juego
+            </button>
+            
+            <a href="basico4.html" class="enlace-cuarto">4° Básico</a>
+            <a href="todos.html" class="enlace-cuarto">Ver todos los proyectos</a>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const nombreGuardado = localStorage.getItem("usuario") || "jorge";
+            let fotoGuardada = localStorage.getItem("foto") || "avatar1.jpg";
+
+            document.getElementById("saludo-usuario").innerText = `Bienvenido ${nombreGuardado}`;
+
+            if (!fotoGuardada.startsWith("img/")) {
+                fotoGuardada = "img/" + fotoGuardada;
+            }
+            document.getElementById("avatar-pantalla").src = fotoGuardada;
+        };
+    </script>
+</body>
+</html>

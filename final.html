@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¡Felicitaciones Completas!</title>
+    <link rel="stylesheet" href="css/estilo_basico4.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        .estrella-animada {
+            font-size: 3.5rem;
+            color: #f1c40f;
+            display: inline-block;
+            animation: brinco 0.8s infinite alternate;
+            margin: 0 8px;
+        }
+        .estrella-animada:nth-child(2) { animation-delay: 0.2s; }
+        .estrella-animada:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes brinco {
+            from { transform: translateY(0); }
+            to { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor-principal" style="max-width: 550px;">
+        <div style="margin-bottom: 10px;">
+            <span class="estrella-animada">⭐</span>
+            <span class="estrella-animada">⭐</span>
+            <span class="estrella-animada">⭐</span>
+        </div>
+
+        <h1 style="color: #ff4757; margin: 10px 0;">¡Completaste todos los juegos!</h1>
+        
+        <div id="texto-final" style="font-size: 1.3rem; margin: 20px 0; font-weight: bold; color: #57606f;"></div>
+
+        <div style="background: #e8f4fd; padding: 15px; border-radius: 20px; font-size: 1.5rem; font-weight: bold; color: #2b6cb0; margin: 20px 0;">
+            🏆 Tu Puntaje Total: <span id="puntos-totales-final">0</span> puntos
+        </div>
+
+        <button class="btn-ui" onclick="window.location.href='todos.html'">📋 Regresar al Menú (todos.html)</button>
+    </div>
+
+    <script src="js/script_basico4.js"></script>
+    <script>
+        const felicitacionTexto = "¡Felicitaciones, completaste todos los juegos! Has hecho un trabajo maravilloso ordenando y reconociendo números hasta el diez mil.";
+
+        window.onload = function() {
+            document.getElementById("puntos-totales-final").innerText = localStorage.getItem("puntajeAcumulado") || "0";
+
+            // Requisito 23: Efecto de confeti continuo
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 } });
+                confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 } });
+                if (Date.now() < end) { requestAnimationFrame(frame); }
+            }());
+
+            hablarTextoKaraoke("texto-final", felicitacionTexto);
+        };
+    </script>
+</body>
+</html>

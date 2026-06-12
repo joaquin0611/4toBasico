@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght=400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* CONTENEDOR EN DOS CUADRADOS LADO A LADO */
+.contenedor-dos-columnas {
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    max-width: 850px;
+    margin-bottom: 20px;
+}
+
+.cuadrado-panel {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 25px;
+    border-radius: 30px;
+    border: 6px solid #ffffff;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+}
+
+.titulo-seccion {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #555;
+    margin-top: 0;
+    border-bottom: 2px dashed #ddd;
+    padding-bottom: 8px;
+}
+
+/* CUADRADO 1: CLIENTE */
+.burbuja-cliente {
+    background: #fff9db;
+    border: 3px solid #fcc419;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #e67e22;
+    margin: auto 0;
+}
+
+.btn-escuchar-juego {
+    background: #fcc419;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.emoji-cliente {
+    font-size: 5rem;
+    margin-top: 10px;
+}
+
+/* CUADRADO 2: COCINA */
+.zona-entrega {
+    background: #f8f9fa;
+    border: 3px dashed #ced4da;
+    border-radius: 20px;
+    height: 220px;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.cono-dibujo {
+    font-size: 4rem;
+    position: absolute;
+    bottom: 5px;
+    z-index: 1;
+}
+
+.bolas-contenedor {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    position: absolute;
+    bottom: 55px; 
+    z-index: 2;
+}
+
+.bola-helado-juego {
+    width: 65px;
+    height: 35px;
+    border-radius: 50% 50% 40% 40%;
+    margin-bottom: -15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+    border: 2px solid rgba(0,0,0,0.1);
+}
+
+.instruccion-arrastrar {
+    font-size: 0.9rem;
+    color: #777;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+
+.barra-ingredientes {
+    background: #eef2f7;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #d0d7de;
+}
+
+.bola-ingrediente {
+    font-size: 2.5rem;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.1s;
+}
+.bola-ingrediente:active { transform: scale(1.2); }
+
+/* CONTROLES INFERIORES */
+.controles-globales {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 850px;
+}
+
+.btn-accion-juego {
+    flex: 1;
+    background: white;
+    color: #555;
+    border: 3px solid #e0e0e0;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 0 #e0e0e0;
+}
+.btn-accion-juego:active { transform: translateY(3px); box-shadow: none; }
+.btn-accion-juego.btn-revisar { background: #7ed957; color: white; border-color: #6ec44c; box-shadow: 0 4px 0 #5aa33e; }
+.btn-accion-juego.btn-volver { background: #90a4ae; color: white; border-color: #78909c; box-shadow: 0 4px 0 #607d8b; }
+
+/* Vista responsiva */
+@media (max-width: 768px) {
+    .contenedor-dos-columnas { flex-direction: column; }
+    .cuadrado-panel { min-height: auto; }
+}

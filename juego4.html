@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego 4 - Promociones</title>
+    <link rel="stylesheet" href="css/estilo_basico4.css">
+</head>
+<body>
+    <div class="tarjeta-juego">
+        <div class="barra-estado">
+            <div>🛒 Presupuesto: $4.000</div>
+            <div id="puntos-box"></div>
+            <div id="vidas-box"></div>
+        </div>
+
+        <h1>👥 Juego 4: El Cartel Engañoso</h1>
+        
+        <div class="caja-instruccion" id="texto-instruccion" data-texto="Tienes cuatro mil pesos exactos para gastar en una promoción doble. ¿Cuál cartel marca exactamente esa cantidad total a pagar?">
+            Cargando...
+        </div>
+
+        <div class="zona-flex-juego">
+            <div class="bloque-opciones">
+                <div class="tarjeta-helado" id="h4_incorrecto" draggable="true">2 por $2.000</div>
+                <div class="tarjeta-helado" id="h4_correcto" draggable="true">2 por $4.000</div>
+                <div class="tarjeta-helado" id="h4_pasado" draggable="true">Cada uno a $4.000</div>
+            </div>
+            <div class="bloque-destino" id="caja-destino"></div>
+        </div>
+
+        <div class="btn-contenedor">
+            <button class="btn-accion btn-reiniciar" onclick="recargarNivel()">🔄 Reiniciar</button>
+            <button class="btn-accion btn-principal" onclick="validarRespuesta()">✅ Validar</button>
+        </div>
+    </div>
+
+    <script src="js/script_basico4.js"></script>
+    <script>
+        window.onload = inicializarEstadoJuego;
+        function validarRespuesta() {
+            const destino = document.getElementById("caja-destino");
+            const esCorrecto = destino.querySelector("#h4_correcto") !== null;
+            procesarResultado(esCorrecto, "juego5.html");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¡Resultados de la Heladería!</title>
+    <link rel="stylesheet" href="css/estilo_basico4.css">
+</head>
+<body>
+    <div class="tarjeta-juego">
+        <h1 id="titulo-final">🍦 ¡Fin de la Aventura! 🍨</h1>
+        <p style="font-size: 1.2rem; color: #6a1b9a;" id="subtitulo-vidas">Calculando tus resultados...</p>
+        
+        <div class="marcador-puntos" id="caja-puntos" style="background: #fbf7fd; border: 2px dashed #ba68c8; border-radius: 16px; padding: 20px; font-size: 2rem; font-weight: 700; color: #6a1b9a; margin: 20px 0;">0 Puntos</div>
+        
+        <div class="estrellas" id="contenedor-estrellas" style="font-size: 2.5rem; margin-bottom: 25px;">
+            <span class="estrella-animada est1">⭐</span>
+            <span class="estrella-animada est2">⭐</span>
+            <span class="estrella-animada est3">⭐</span>
+        </div>
+
+        <button class="btn-accion btn-principal" onclick="reiniciarTodo()">🎮 Jugar de Nuevo</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const puntaje = parseInt(localStorage.getItem("puntaje_heladeria")) || 0;
+            const vidasRestantes = parseInt(localStorage.getItem("vidas_heladeria"));
+            
+            document.getElementById("caja-puntos").innerText = `⭐ ${puntaje} Puntos`;
+            
+            const tituloHtml = document.getElementById("titulo-final");
+            const subVidas = document.getElementById("subtitulo-vidas");
+            const contenedorEstrellas = document.getElementById("contenedor-estrellas");
+
+            let textoFinalVoz = "";
+
+            if (vidasRestantes <= 0) {
+                tituloHtml.innerText = "💔 ¡Inténtalo otra vez!";
+                subVidas.innerText = "Te has quedado sin vidas en esta ronda.";
+                contenedorEstrellas.innerHTML = "❌💜❌";
+                
+                // Mensaje exacto de retroalimentación solicitado
+                textoFinalVoz = `Te has quedado sin vidas, pero no te preocupes, presionando el botón puedes volver a intentarlo. Obtuviste un puntaje de ${puntaje} puntos.`;
+            } else {
+                tituloHtml.innerText = "🍦 ¡Felicitaciones por tu Logro! 🍨";
+                subVidas.innerText = `¡Excelente! Terminaste el recorrido con ${vidasRestantes} vidas.`;
+                
+                textoFinalVoz = `¡Terminaste el juego! Lograste acumular ${puntaje} puntos y te quedaron ${vidasRestantes} vidas. ¡Buen trabajo!`;
+            }
+
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const u = new SpeechSynthesisUtterance(textoFinalVoz);
+                u.lang = 'es-CL';
+                window.speechSynthesis.speak(u);
+            }
+        };
+
+        function reiniciarTodo() {
+            localStorage.setItem("vidas_heladeria", "3");
+            localStorage.setItem("puntaje_heladeria", "0");
+            // Redirige al inicio de la bienvenida para restablecer el ciclo
+            window.location.href = "bienvenida.html"; 
+        }
+    </script>
+</body>
+</html>

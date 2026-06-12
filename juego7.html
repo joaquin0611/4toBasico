@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Heladería - Juego 7</title>
+    <link rel="stylesheet" href="css/estilo_juegos.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <div class="header-juego">
+        <div>💰 Tu Monedero: <strong>$1.000</strong></div>
+        <div>Nivel 6 de 6
+            <div class="progreso-barra"><div class="progreso-llenado" style="width: 100%;"></div></div>
+        </div>
+    </div>
+
+    <div class="contenedor-tienda">
+        <h2>🍦 ¡Último desafío! Te queda una moneda de $1.000. Compra el barquillo simple que te alcance justo.</h2>
+        
+        <div class="vitrina">
+            <div class="helado-opcion" onclick="verificarCompra(false)">
+                <img src="img/bola_helado.png" alt="Helado">
+                <p class="precio">$1.200</p>
+            </div>
+            <!-- Correcto -->
+            <div class="helado-opcion" onclick="verificarCompra(true)">
+                <img src="img/bola_helado.png" alt="Helado">
+                <p class="precio">$950</p>
+            </div>
+            <div class="helado-opcion" onclick="verificarCompra(false)">
+                <img src="img/bola_helado.png" alt="Helado">
+                <p class="precio">$2.000</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function verificarCompra(esCorrecto) {
+            if (esCorrecto) {
+                confetti();
+                Swal.fire({ 
+                    icon: 'success', 
+                    title: '¡COMPRA COMPLETA!', 
+                    text: '¡Terminaste todos los desafíos de la heladería perfectamente!', 
+                    confirmButtonColor: '#7ED957' 
+                }).then(() => {
+                    // Aquí lo mandas a tu pantalla de felicitaciones final
+                    window.location.href = 'felicitaciones.html'; 
+                });
+            } else {
+                Swal.fire({ icon: 'error', title: '¡Ups!', text: 'Eso cuesta más de $1.000, ¡busca tu barquillo simple!', confirmButtonColor: '#ad1457' });
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght=400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #a6c1ee 0%, #fbc2eb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contenedor-enseñar {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 25px;
+    border-radius: 35px;
+    width: 95%;
+    max-width: 650px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+    border: 8px solid #ffffff;
+    text-align: center;
+}
+
+.burbuja-numero {
+    background: #fff0f6;
+    border: 4px dashed #ff69b4;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px auto;
+}
+
+#numero-pantalla {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #ff69b4;
+}
+
+.burbuja-texto {
+    background: #f1fbe9;
+    border: 3px solid #7ED957;
+    padding: 12px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #43a047;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-escuchar {
+    background: #7ED957;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 3px 0 #5fb33e;
+}
+
+.zona-helados-pantalla {
+    background: #ffffff;
+    border: 3px dashed #e0e0e0;
+    border-radius: 25px;
+    min-height: 140px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.helado-individual-contenedor {
+    position: relative;
+    display: inline-block;
+    width: 75px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+.helado-individual-contenedor:hover {
+    transform: scale(1.1);
+}
+
+.helado-generado {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.numero-sobre-helado {
+    position: absolute;
+    top: 25%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #333333;
+    text-shadow: 2px 2px 0px #ffffff, -2px -2px 0px #ffffff, 2px -2px 0px #ffffff, -2px 2px 0px #ffffff;
+    pointer-events: none; 
+}
+
+.panel-numeros {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-num {
+    background: #e1f5fe;
+    border: 2px solid #81d4fa;
+    color: #0277bd;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 10px 0;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 4px 0 #81d4fa;
+}
+.btn-num:hover { background: #b3e5fc; }
+.btn-num:active { transform: translateY(4px); box-shadow: 0 0px 0 #81d4fa; }
+
+.btn-num.activo {
+    background: #7ED957 !important;
+    border-color: #5fb33e !important;
+    color: white !important;
+    box-shadow: 0 4px 0 #4c9132 !important;
+}
+
+.controles-inferiores {
+    display: flex;
+    gap: 15px;
+    border-top: 2px solid #eee;
+    padding-top: 15px;
+}
+
+.btn-accion {
+    flex: 1;
+    background: #e0e0e0;
+    color: #555;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-accion.btn-volver {
+    background: #90a4ae;
+    color: white;
+}
+
+.btn-accion.btn-juego {
+    background: #ff69b4;
+    color: white;
+}
+.btn-accion.btn-juego:hover {
+    background: #ff409f;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego 3 - Vueltos</title>
+    <link rel="stylesheet" href="css/estilo_basico4.css">
+</head>
+<body>
+    <div class="tarjeta-juego">
+        <div class="barra-estado">
+            <div>💸 Caja Registradora</div>
+            <div id="puntos-box"></div>
+            <div id="vidas-box"></div>
+        </div>
+
+        <h1>🔥 Juego 3: Matemáticas de Vuelto</h1>
+        
+        <div class="caja-instruccion" id="texto-instruccion" data-texto="Un cliente te paga con un billete de diez mil pesos un balde familiar y tú le devuelves exactamente quinientos pesos de vuelto. ¿Cuánto costaba el helado?">
+            Cargando...
+        </div>
+
+        <div class="zona-flex-juego">
+            <div class="bloque-opciones">
+                <div class="tarjeta-helado" id="h3_9050" draggable="true">$9.050</div>
+                <div class="tarjeta-helado" id="h3_9500" draggable="true">$9.500</div>
+                <div class="tarjeta-helado" id="h3_8500" draggable="true">$8.500</div>
+            </div>
+            <div class="bloque-destino" id="caja-destino"></div>
+        </div>
+
+        <div class="btn-contenedor">
+            <button class="btn-accion btn-reiniciar" onclick="recargarNivel()">🔄 Reiniciar</button>
+            <button class="btn-accion btn-principal" onclick="validarRespuesta()">✅ Validar</button>
+        </div>
+    </div>
+
+    <script src="js/script_basico4.js"></script>
+    <script>
+        window.onload = inicializarEstadoJuego;
+        function validarRespuesta() {
+            const destino = document.getElementById("caja-destino");
+            const esCorrecto = destino.querySelector("#h3_9500") !== null;
+            procesarResultado(esCorrecto, "juego4.html");
+        }
+    </script>
+</body>
+</html>

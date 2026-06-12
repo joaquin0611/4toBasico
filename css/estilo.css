@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    font-family: "Arial Rounded MT Bold", Arial, sans-serif;
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.logo { width: 120px; margin-bottom: 10px; }
+
+input[type="text"] {
+    width: 90%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 16px;
+    margin: 15px 0;
+    outline: none;
+}
+
+input[type="text"]:focus { border-color: #ff69b4; }
+
+.avatares {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Ocultar círculo del radio y estilizar imagen */
+.avatares input { display: none; }
+
+.avatares img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 4px solid transparent;
+    transition: 0.3s;
+    object-fit: cover;
+    /* 🌟 CORRECCIÓN DE IMAGEN: Elimina el fondo falso mezclándolo con el entorno */
+    mix-blend-mode: multiply; 
+}
+
+.avatares img:hover { transform: scale(1.1); }
+
+/* Cuando el input hermano está marcado, pinta el borde de la imagen */
+.avatares input:checked + img {
+    border-color: #ff69b4;
+    background-color: #ffe6f2;
+}
+
+button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+button:hover { background: #ff3d91; transform: translateY(-2px); }
+button:active { transform: translateY(0); }

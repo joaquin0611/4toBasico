@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego 2 - El Más Económico</title>
+    <link rel="stylesheet" href="css/estilo_basico4.css">
+</head>
+<body>
+    <div class="tarjeta-juego">
+        <div class="barra-estado">
+            <div>📋 Comparación</div>
+            <div id="puntos-box"></div>
+            <div id="vidas-box"></div>
+        </div>
+
+        <h1>🪙 Juego 2: El Más Económico</h1>
+        
+        <div class="caja-instruccion" id="texto-instruccion" data-texto="Llegó un cliente que quiere ahorrar. Arrastra a la casilla el helado que tenga el menor valor de todos.">
+            Cargando...
+        </div>
+
+        <div class="zona-flex-juego">
+            <div class="bloque-opciones">
+                <div class="tarjeta-helado" id="h2_3400" draggable="true">$3.400</div>
+                <div class="tarjeta-helado" id="h2_3040" draggable="true">$3.040</div>
+                <div class="tarjeta-helado" id="h2_3090" draggable="true">$3.090</div>
+            </div>
+            <div class="bloque-destino" id="caja-destino"></div>
+        </div>
+
+        <div class="btn-contenedor">
+            <button class="btn-accion btn-reiniciar" onclick="recargarNivel()">🔄 Reiniciar</button>
+            <button class="btn-accion btn-principal" onclick="validarRespuesta()">✅ Validar</button>
+        </div>
+    </div>
+
+    <script src="js/script_basico4.js"></script>
+    <script>
+        window.onload = inicializarEstadoJuego;
+        function validarRespuesta() {
+            const destino = document.getElementById("caja-destino");
+            const esCorrecto = destino.querySelector("#h2_3040") !== null;
+            procesarResultado(esCorrecto, "juego3.html"); 
+        }
+    </script>
+</body>
+</html>

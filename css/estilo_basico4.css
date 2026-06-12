@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #f3e5f5 0%, #e8eaf6 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #4a148c;
+}
+
+.tarjeta-juego {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(106, 27, 154, 0.08);
+    width: 100%;
+    max-width: 620px;
+    text-align: center;
+    border: 1px solid rgba(142, 36, 170, 0.15);
+    box-sizing: border-box;
+    position: relative;
+}
+
+h1 {
+    color: #4a148c;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Punto 28: Barra de estado ordenada con puntaje a la derecha */
+.barra-estado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fbf7fd;
+    padding: 12px 20px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    border: 1px solid #f3e5f5;
+}
+
+.caja-puntos-derecha {
+    order: 2; /* Fuerza al puntaje y su estrella a ir a la derecha */
+    font-weight: 700;
+    color: #8e24aa;
+}
+
+.caja-instruccion {
+    background: #f3e5f5;
+    color: #6a1b9a;
+    padding: 20px;
+    border-radius: 16px;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.palabra-karaoke {
+    display: inline-block;
+    margin-right: 5px;
+    transition: all 0.2s ease;
+}
+
+.palabra-karaoke.activa {
+    color: #e040fb;
+    transform: scale(1.1);
+    font-weight: 700;
+}
+
+.zona-flex-juego {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.bloque-opciones {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    min-height: 70px;
+    padding: 10px;
+}
+
+.tarjeta-helado {
+    background: #ffffff;
+    color: #6a1b9a;
+    border: 2px solid #ba68c8;
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: grab;
+    box-shadow: 0 4px 10px rgba(186, 104, 200, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+    user-select: none;
+}
+
+.tarjeta-helado:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(186, 104, 200, 0.25);
+}
+
+.bloque-destino {
+    background: #fafafa;
+    border: 3px dashed #ce93d8;
+    border-radius: 18px;
+    min-height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-accion {
+    font-family: 'Quicksand', sans-serif;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.btn-principal {
+    background: #8e24aa;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(142, 36, 170, 0.3);
+}
+
+.btn-principal:hover {
+    background: #7b1fa2;
+    transform: translateY(-2px);
+}
+
+.btn-reiniciar {
+    background: #f3e5f5;
+    color: #8e24aa;
+}
+
+.contenedor-imagen {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 25px 0;
+}
+
+.ilustracion {
+    width: 110px;
+    height: auto;
+    filter: drop-shadow(0px 6px 12px rgba(142, 36, 170, 0.12));
+}
+
+/* Punto 22: Animación de las 3 estrellas finales */
+@keyframes pulsoEstrella {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+.estrella-animada {
+    display: inline-block;
+    animation: pulsoEstrella 1.8s infinite ease-in-out;
+}
+.est1 { animation-delay: 0s; }
+.est2 { animation-delay: 0.3s; }
+.est3 { animation-delay: 0.6s; }
+
+/* Contenedor para simular ráfagas de confeti con CSS */
+.efecto-confeti-css {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.mostrar-confeti {
+    opacity: 1;
+}
